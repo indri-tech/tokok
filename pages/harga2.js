@@ -3,11 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const products = [
-    { id: 1, name: 'Roti Tawar', price: 15000, image: '/images/roti-tawar.jpg' },
-    { id: 2, name: 'Roti Gandum', price: 18000, image: '/images/roti-gandum.jpg' },
-    { id: 3, name: 'Croissant', price: 20000, image: '/images/croissant.jpg' },
-    { id: 4, name: 'Donat', price: 12000, image: '/images/donat.jpg' },
-    { id: 5, name: 'Baguette', price: 22000, image: '/images/baguette.jpg' },
+    { id: 1, name: 'donat1', price: 15000, image: '/images/image1.jpg' },
+    { id: 2, name: 'donat2', price: 18000, image: '/images/image2.jpg' },
+    { id: 3, name: 'donat3', price: 20000, image: '/images/image3.jpg' },
+    { id: 4, name: 'donat4', price: 12000, image: '/images/image4.jpg' },
+    { id: 5, name: 'donat5', price: 22000, image: '/images/image5.jpg' },
 ];
 
 export default function PriceList() {
