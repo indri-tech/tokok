@@ -1,23 +1,17 @@
 import Image from "next/image";
-import { Geist } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 
-const geistSans = Geist({ subsets: ["latin"], weight: "400" });
-
-
-
-
-const geistMono = GeistMono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Gunakan display: "swap" untuk meningkatkan performa
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+const robotoMono = Roboto_Mono({ subsets: ["latin"], display: "swap" });
 
 export default function Home() {
   return (
       <div
-          className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-          style={{ fontFamily: "var(--font-geist-sans)" }}
+          className={`${inter.className} ${robotoMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
       >
         <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+          {/* Pastikan file next.svg ada di /public */}
           <Image
               className="dark:invert"
               src="/next.svg"
@@ -44,6 +38,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
             >
+              {/* Pastikan file vercel.svg ada di /public */}
               <Image
                   className="dark:invert"
                   src="/vercel.svg"
@@ -63,6 +58,7 @@ export default function Home() {
             </a>
           </div>
         </main>
+
         <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
           <a
               className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -70,6 +66,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
           >
+            {/* Pastikan file file.svg ada di /public */}
             <Image src="/file.svg" alt="File icon" width={16} height={16} />
             Learn
           </a>
@@ -79,6 +76,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
           >
+            {/* Pastikan file window.svg ada di /public */}
             <Image src="/window.svg" alt="Window icon" width={16} height={16} />
             Examples
           </a>
@@ -88,6 +86,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
           >
+            {/* Pastikan file globe.svg ada di /public */}
             <Image src="/globe.svg" alt="Globe icon" width={16} height={16} />
             Go to nextjs.org →
           </a>
