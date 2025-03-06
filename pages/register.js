@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from 'next/link';
+
+
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -52,7 +55,7 @@ export default function Register() {
           <button className="w-full bg-blue-500 text-white py-2 rounded">Register</button>
         </form>
         <p className="text-center text-sm mt-4">
-          Sudah punya akun? <link href="/login" className="text-blue-500">Login</link>
+          Sudah punya akun? <Link href="/login" className="text-blue-500">Login</Link>
         </p>
       </div>
     </div>

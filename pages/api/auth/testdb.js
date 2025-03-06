@@ -1,4 +1,5 @@
-import { connectDB } from "./lib/db.js";
+//import { connectDB } from "./lib/db.js";
+import db from '../../../lib/db';
 
 async function testDB() {
   try {
