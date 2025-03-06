@@ -1,21 +1,35 @@
-import { useState } from 'react';
+"use client"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-
+import { useEffect, useState } from "react";
+import Image from 'next/image';
 const products = [
-    { id: 1, name: 'donat1', price: 15000, image: '/images/image1.jpg' },
-    { id: 2, name: 'donat2', price: 18000, image: '/images/image2.jpg' },
-    { id: 3, name: 'donat3', price: 20000, image: '/images/image3.jpg' },
-    { id: 4, name: 'donat4', price: 12000, image: '/images/image4.jpg' },
-    { id: 5, name: 'donat5', price: 22000, image: '/images/image5.jpg' },
+    { id: 1, name: 'Roti Tawar', price: 15000, image: '/images/image1.jpg' },
+    { id: 2, name: 'Roti Gandum', price: 18000, image: '/images/image2.jpg' },
+    { id: 3, name: 'Croissant', price: 20000, image: '/images/image3.jpg' },
+    { id: 4, name: 'Donat', price: 12000, image: '/images/image4.jpg' },
+    { id: 5, name: 'Baguette', price: 22000, image: '/images/image5.jpg' },
 ];
+export default function Harga2() {
 
-export default function PriceList() {
+    useEffect(() => {
+        console.log("Isi Keranjang:", cart);
+        window.cart = cart; // Simpan ke window agar bisa diakses di console
+    }, [cart]);
     const [cart, setCart] = useState([]);
 
+   
+
+
     const addToCart = (product) => {
-        setCart([...cart, product]);
+        setCart((prevCart) => {
+            const updatedCart = [...prevCart, product];
+            console.log("Cart setelah ditambahkan:", updatedCart);
+            return updatedCart;
+        });
     };
+    
+    const totalHarga = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return (
         <div className="container mx-auto p-6">
@@ -23,7 +37,7 @@ export default function PriceList() {
             <Swiper spaceBetween={20} slidesPerView={2}>
                 {products.map((product) => (
                     <SwiperSlide key={product.id} className="bg-white p-4 rounded-lg shadow-md">
-                        <img src={product.image} alt={product.name} className="w-full h-40 object-cover rounded" />
+                        <Image src={product.image} alt={product.name} className="w-full h-40 object-cover rounded" />
                         <h2 className="text-xl font-semibold mt-2">{product.name}</h2>
                         <p className="text-lg text-gray-700">Rp {product.price.toLocaleString()}</p>
                         <button
@@ -39,9 +53,12 @@ export default function PriceList() {
                 <h2 className="text-xl font-bold">Keranjang Belanja</h2>
                 {cart.length > 0 ? (
                     <ul>
-                        {cart.map((item, index) => (
-                            <li key={index} className="text-lg">{item.name} - Rp {item.price.toLocaleString()}</li>
+                        {cart.map((item) => (
+                            <li key={item.id} className="text-lg">
+                                {item.name} - Rp {item.price.toLocaleString()} x {item.quantity}
+                            </li>
                         ))}
+                        <p className="mt-2 font-semibold text-lg">Total: Rp {totalHarga.toLocaleString()}</p>
                     </ul>
                 ) : (
                     <p className="text-gray-500">Keranjang masih kosong</p>

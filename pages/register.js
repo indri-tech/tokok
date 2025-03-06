@@ -52,7 +52,7 @@ export default function Register() {
           <button className="w-full bg-blue-500 text-white py-2 rounded">Register</button>
         </form>
         <p className="text-center text-sm mt-4">
-          Sudah punya akun? <a href="/login" className="text-blue-500">Login</a>
+          Sudah punya akun? <link href="/login" className="text-blue-500">Login</link>
         </p>
       </div>
     </div>
