@@ -12,7 +12,7 @@ export default function Home() {
       >
         <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
           {/* Pastikan file next.svg ada di /public */}
-          <Image
+          <img
               className="dark:invert"
               src="/next.svg"
               alt="Next.js logo"
@@ -39,7 +39,7 @@ export default function Home() {
                 rel="noopener noreferrer"
             >
               {/* Pastikan file vercel.svg ada di /public */}
-              <Image
+              <img
                   className="dark:invert"
                   src="/vercel.svg"
                   alt="Vercel logo"
@@ -67,7 +67,7 @@ export default function Home() {
               rel="noopener noreferrer"
           >
             {/* Pastikan file file.svg ada di /public */}
-            <Image src="/file.svg" alt="File icon" width={16} height={16} />
+            <img src="/file.svg" alt="File icon" width={16} height={16} />
             Learn
           </a>
           <a
@@ -77,7 +77,7 @@ export default function Home() {
               rel="noopener noreferrer"
           >
             {/* Pastikan file window.svg ada di /public */}
-            <Image src="/window.svg" alt="Window icon" width={16} height={16} />
+            <img src="/window.svg" alt="Window icon" width={16} height={16} />
             Examples
           </a>
           <a
@@ -87,7 +87,7 @@ export default function Home() {
               rel="noopener noreferrer"
           >
             {/* Pastikan file globe.svg ada di /public */}
-            <Image src="/globe.svg" alt="Globe icon" width={16} height={16} />
+            <img src="/globe.svg" alt="Globe icon" width={16} height={16} />
             Go to nextjs.org →
           </a>
         </footer>

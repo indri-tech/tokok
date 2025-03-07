@@ -42,7 +42,7 @@ export default function Harga2() {
             <Swiper spaceBetween={20} slidesPerView={2}>
                 {products.map((product) => (
                     <SwiperSlide key={product.id} className="bg-white p-4 rounded-lg shadow-md">
-                        <Image src={product.image} alt={product.name} width={150} height={150} className="w-full h-40 object-cover rounded" />
+                        <img src={product.image} alt={product.name} width={150} height={150} className="w-full h-40 object-cover rounded" />
                         <h2 className="text-xl font-semibold mt-2">{product.name}</h2>
                         <p className="text-lg text-gray-700">Rp {product.price.toLocaleString()}</p>
                         <button
