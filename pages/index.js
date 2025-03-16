@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Inter, Roboto_Mono } from "next/font/google";
+import Navbar from "../components/Navbar";
 
 // Gunakan display: "swap" untuk meningkatkan performa
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -18,7 +19,7 @@ export default function Home() {
               alt="Next.js logo"
               width={180}
               height={38}
-              priority
+             // priority
           />
           <ol className="list-inside list-decimal text-sm text-center sm:text-left">
             <li className="mb-2">

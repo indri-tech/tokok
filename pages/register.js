@@ -1,6 +1,9 @@
-import { useState } from "react";
+//import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from 'next/link';
+import Navbar from "../components/Navbar";
+import { useState, useEffect } from "react";
+import { getSession } from "next-auth/react";
 
 
 
@@ -10,6 +13,51 @@ export default function Register() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const router = useRouter();
+
+
+
+  //tambahan untuk session
+  
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+
+
+
+
+
+
+  
+  useEffect(() => {
+    const fromNavbar = sessionStorage.getItem("fromNavbar");
+
+
+      const checkSession = async () => {
+      const res = await fetch("/api/session");
+      const data = await res.json();
+
+      
+        if (!data.allowed) {
+          router.replace("/"); // Redirect ke halaman utama jika tidak ada session
+        } else {
+          setLoading(false);
+        }
+      };
+
+    checkSession();
+  }, []);
+  
+    /*if (fromNavbar === "true") {
+      setIsAllowed(true); // Boleh masuk ke halaman
+      sessionStorage.removeItem("fromNavbar"); // Hapus status setelah masuk
+    } else {
+      router.push("/"); // Redirect kalau langsung akses
+    }
+
+     */
+
+
+
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -30,6 +78,12 @@ export default function Register() {
       setTimeout(() => router.push("/login"), 2000);
     }
   };
+
+  //if (!isAllowed) return null;
+
+
+  if (loading) return <p>Loading...</p>;
+  return <h1>Halaman Register - Akses diberikan!</h1>;
 
   return (
     <div className="flex h-screen justify-center items-center bg-gray-100">
@@ -56,6 +110,7 @@ export default function Register() {
         </form>
         <p className="text-center text-sm mt-4">
           Sudah punya akun? <Link href="/login" className="text-blue-500">Login</Link>
+          
         </p>
       </div>
     </div>
